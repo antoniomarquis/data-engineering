@@ -1,0 +1,33 @@
+<h1>Listing purchasers</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Item description</th>
+    <th>Item price</th>
+    <th>Purchase count</th>
+    <th>Merchant address</th>
+    <th>Merchant name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @purchasers.each do |purchaser| %>
+  <tr>
+    <td><%= purchaser.name %></td>
+    <td><%= purchaser.item_description %></td>
+    <td><%= purchaser.item_price %></td>
+    <td><%= purchaser.purchase_count %></td>
+    <td><%= purchaser.merchant_address %></td>
+    <td><%= purchaser.merchant_name %></td>
+    <td><%= link_to 'Show', purchaser %></td>
+    <td><%= link_to 'Edit', edit_purchaser_path(purchaser) %></td>
+    <td><%= link_to 'Destroy', purchaser, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Purchaser', new_purchaser_path %>
