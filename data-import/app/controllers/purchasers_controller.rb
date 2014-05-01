@@ -53,6 +53,11 @@ class PurchasersController < ApplicationController
     end
   end
 
+  def import
+    Purchaser.data_import(params[:file].tempfile)
+    redirect_to purchasers_url, notice: "Purchasers imported."
+ end
+
   # PUT /purchasers/1
   # PUT /purchasers/1.json
   def update

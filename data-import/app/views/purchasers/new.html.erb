@@ -1,5 +1,8 @@
 <h1>New Purchasers' Data Upload </h1>
 
-<%= render 'form' %>
+<%= form_tag import_purchasers_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import Purchasers" %>
+  <%end%>
 
 <%= link_to 'Back', purchasers_path %>

@@ -1,5 +1,8 @@
 DataImport::Application.routes.draw do
-  resources :purchasers
 
-  root to: 'purchasers#index'
+  resources :purchasers do
+     collection { post :import }
+   end
+
+  root to: 'purchasers#new'
 end
